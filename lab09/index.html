@@ -1,0 +1,28 @@
+<html>
+ <script type="text/javascript">
+ // muestra las cookies que hay en el navegador
+ function MuestraCookies() {
+ var todas=document.cookie;
+ // array de pares nombre - valor
+ en_array=todas.split(';');
+ // muestra cada par
+ for (var i=0; i<en_array.length; i++) {
+ nombre=en_array[i].split('=')[0];
+ valor=en_array[i].split('=')[1];
+ document.write("cookie "+nombre+" = "+valor+"<br>\n\r");
+ }
+ }
+</script>
+<script type="text/javascript">
+ MuestraCookies();
+</script>
+<body>
+<?php
+ // añade una cookie de sesión
+ session_start();
+ // muestra el servidor que atiende la petición
+ $server_ip=$_SERVER['SERVER_ADDR'];
+ echo "petición servida por: ".$server_ip."<br>".PHP_EOL;
+?>
+</body>
+</html>
